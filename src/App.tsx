@@ -18,7 +18,7 @@ function App() {
     <div className="p-5">
       <h1 className="text-2x font-bold"> Things to do </h1>
 <TodoList todos={myTodos}/>
-<h1 className="text-2x font-bold"> Things to be done </h1>
+<h1 className="text-2x text-latin font-bold"> Things to be done </h1>
 <TodoList todos={myTodos}/>
     </div>
     
