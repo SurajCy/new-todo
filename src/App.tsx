@@ -1,18 +1,25 @@
 import { useState } from 'react'
-import TodoRow from './Components/TodoRow'
+import TodoList from './Components/TodoList'
 
 function App() {
-  const myTodo={
+  const myTodos=[{
     id:1,
     title: "bring milk",
     done: true
-  }
+  },
+    {
+      id:2,
+      title: "bring cake",
+      done: false
+    }
+  ]
 
   return(
     <div className="p-5">
-
-<TodoRow
-todo={myTodo} />
+      <h1 className="text-2x font-bold"> Things to do </h1>
+<TodoList todos={myTodos}/>
+<h1 className="text-2x font-bold"> Things to be done </h1>
+<TodoList todos={myTodos}/>
     </div>
     
   )

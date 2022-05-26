@@ -9,7 +9,7 @@ type TodoRowProps = {
 
 const TodoRow: FC<TodoRowProps> = ({todo}) => {
   
-const {id,title,done} = todo;
+const {title,done} = todo;
 
   return <div className="flex items-center">
     <input checked={done} type="checkbox"/>
