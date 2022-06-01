@@ -1,5 +1,8 @@
 import { FC, memo } from "react";
+import { connect } from "react-redux";
 import Todo from "../Models/Todo";
+import { completeTodoSelector, incompleteTodoSelector } from "../Selectors/todo";
+import { State } from "../store";
 import TodoRow from "./TodoRow";
 
 type TodoListProps = {
@@ -15,3 +18,16 @@ const TodoList: FC<TodoListProps> = ({todos}) => {
 TodoList.defaultProps = {};
 
 export default memo(TodoList);
+
+
+const incompleteMapper=(s:State)=>{
+  return{todos: incompleteTodoSelector(s)}
+
+}
+const completeMapper=(s:State)=>{
+  return{todos: completeTodoSelector(s)}
+
+}
+export const IncompleteTodo= connect(incompleteMapper)(TodoList);
+
+export const CompleteTodo= connect(completeMapper)(TodoList);
