@@ -1,4 +1,4 @@
-import { FC, memo, useState } from "react";
+import { ChangeEvent, FC, memo, useState } from "react";
 import { useDispatch } from "react-redux";
 import { TODO_ADD } from "../Actions/todo";
 
@@ -8,7 +8,7 @@ const TodoCreator: FC<TodoCreatorProps> = (props) => {
     const dispatch =useDispatch();
     const [inputValue,setValue]= useState("");
 
-    const handleChange=(e: ChangeEvent<HTMLInputElement>)=>{
+    const handleChange=(e:ChangeEvent<HTMLInputElement>)=>{
 setValue(e.target.value);
 
     };

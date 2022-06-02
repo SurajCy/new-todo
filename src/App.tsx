@@ -6,7 +6,7 @@ function App() {
 
  
   return(
-    <div className="p-5 h-screen bg-[url('https://media.istockphoto.com/photos/todo-list-in-a-spiral-notebook-on-a-wooden-background-an-empty-space-picture-id1346241019?b=1&k=20&m=1346241019&s=170667a&w=0&h=jkhjgT2-adBmTv4Rc83r4aw5wqJV0vBwJ1E4K98ibLk=')]">
+    <div className="p-5 h-screen bg-[url('https://media.istockphoto.com/photos/coffee-cup-with-latte-art-foam-and-empty-sheet-of-paper-for-writing-picture-id1197664613?b=1&k=20&m=1197664613&s=170667a&w=0&h=YyfD_GxeOag7tC4komKdLYhOSz8VVvzrcaVmtWk7WL0=')]">
     <h1 className="text-2x font-bold"> Things to do </h1>
 <IncompleteTodo/>
 <TodoCreator></TodoCreator>
