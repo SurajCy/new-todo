@@ -1,5 +1,6 @@
 import { FC, memo } from "react";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
+import { TODO_STATUS_CHANGE } from "../Actions/todo";
 import Todo from "../Models/Todo";
 import { completeTodoSelector, incompleteTodoSelector } from "../Selectors/todo";
 import { State } from "../store";
@@ -10,8 +11,14 @@ type TodoListProps = {
 };
 
 const TodoList: FC<TodoListProps> = ({todos}) => {
+  const dispatch=useDispatch();
+
+ const handleStatusChange=(id:number,done:boolean)=>{
+dispatch({type:TODO_STATUS_CHANGE,payload:{id,done}})
+}
+
   return <div>
-  {todos.map(t => <TodoRow  key={t.id} todo={t}/>)}
+  {todos.map(t => <TodoRow onStatusChange={handleStatusChange} key={t.id} todo={t}/>)}
   </div>;
 };
 
