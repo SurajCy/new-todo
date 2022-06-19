@@ -27,9 +27,8 @@ import Todo from "./Models/Todo"
         }
   
         case TODO_ADD:{
-          const todoText=action.payload;
-const todo= {id:nextId, title:todoText,done:false};
-nextId++
+          const todo:Todo=action.payload;
+
  return{...state,todos:[...state.todos,todo]}
         }
   

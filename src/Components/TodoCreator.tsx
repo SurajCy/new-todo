@@ -1,11 +1,11 @@
 import { ChangeEvent, FC, memo, useState } from "react";
-import { useDispatch } from "react-redux";
-import { TODO_ADD } from "../Actions/todo";
+import { connect } from "react-redux";
+import { todoAdd } from "../Actions/todo";
 
-type TodoCreatorProps = {};
+type TodoCreatorProps = {onSubmit:(todoText:string)=>void};
 
-const TodoCreator: FC<TodoCreatorProps> = (props) => {
-    const dispatch =useDispatch();
+const TodoCreator: FC<TodoCreatorProps> = ({onSubmit}) => {
+    
     const [inputValue,setValue]= useState("");
 
     const handleChange=(e:ChangeEvent<HTMLInputElement>)=>{
@@ -13,15 +13,15 @@ setValue(e.target.value);
 
     };
     const handleSubmit=()=>{
-   dispatch({type:TODO_ADD, payload: inputValue})
+  onSubmit(inputValue)
    setValue("")
     }
   return <div>
       <input  value={inputValue} onChange={handleChange} className="border border-gray-2 rounded-md"/>
-      <button onClick={handleSubmit} className="rounded-md ml-2 bg-yellow-300 p-2">SAVE</button>
+      <button onClick={handleSubmit} disabled={!inputValue} className="rounded-md ml-2 bg-yellow-300 p-2">SAVE</button>
   </div>;
 };
 
 TodoCreator.defaultProps = {};
 
-export default memo(TodoCreator);
+export default connect(undefined,{onSubmit:todoAdd}) (memo(TodoCreator))
